@@ -14,7 +14,6 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/my-angular-project",
-            "baseHref": "/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -30,12 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -103,6 +97,6 @@
     }
   },
   "cli": {
-    "analytics": "be302859-14d8-4485-bbdf-38db57bee3b5"
+    "analytics": "4a34c7b6-cd68-4c50-ad0d-c342e78f9082"
   }
 }
