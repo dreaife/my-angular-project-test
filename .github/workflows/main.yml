@@ -26,7 +26,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/my-angular-project  # 请根据实际输出路径填写
+          folder: dist/my-angular-project/browser  # 请根据实际输出路径填写
           token: ${{ secrets.TOKEN }}
 
 env:
