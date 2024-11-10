@@ -1,47 +1,156 @@
+/* 设置背景颜色和对齐方式 */
 .auth-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 2em;
-    text-align: center;
-  }
-  
-  .auth-container label {
-    display: block;
-    margin-bottom: 0.5em;
-  }
-  
-  .auth-container input {
-    margin-bottom: 1em;
-    width: 100%;
-    padding: 0.5em;
-  }
-  
-  .auth-container button {
-    width: 100%;
-    padding: 0.5em;
-    margin-top: 1em;
-  }
-  
-  
+  max-width: 400px;
+  margin: 3em auto;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* 标题样式 */
+.auth-container h2 {
+  font-size: 1.8em;
+  color: #333;
+  margin-bottom: 1em;
+}
+
+/* 表单项的容器 */
+.auth-container form div {
+  margin-bottom: 1.2em;
+  text-align: left;
+}
+
+/* 标签的样式 */
+.auth-container label {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 0.5em;
+}
+
+/* 输入框样式 */
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input[type="text"]:focus,
+.auth-container input[type="email"]:focus,
+.auth-container input[type="password"]:focus {
+  border-color: #3b82f6;
+}
+
+/* 提交按钮样式 */
+.auth-container button[type="submit"] {
+  width: 100%;
+  padding: 0.8em;
+  margin-top: 1em;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-container button[type="submit"]:hover {
+  background-color: #2563eb;
+}
+
+/* 切换模式按钮样式 */
+.auth-container button:not([type="submit"]) {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  transition: color 0.3s ease;
+}
+
+.auth-container button:not([type="submit"]):hover {
+  color: #1e40af;
+}
+
+/* 提示信息的样式 */
+.auth-container p {
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #ff4d4f;
+}
+
+/* 模态对话框样式 */
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  background-color: #fff;
-  padding: 1em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  background-color: #ffffff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  text-align: left;
   z-index: 1000;
 }
 
-.modal input {
+.modal h2 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.modal input[type="password"] {
   width: 100%;
-  padding: 0.5em;
-  margin: 1em 0;
+  padding: 0.8em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  margin-bottom: 1em;
+  box-sizing: border-box;
 }
 
 .modal button {
-  padding: 0.5em;
+  width: 100%;
+  padding: 0.8em;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+  background-color: #2563eb;
+}
+
+/* 遮罩层 */
+.modal + .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
