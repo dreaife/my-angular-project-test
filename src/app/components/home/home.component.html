@@ -1,1 +1,17 @@
-<p>home works!</p>
+<div class="weekly-calendar">
+    <div *ngFor="let dayData of weeklyData" class="day-column">
+      <h3>{{ dayData.day }}</h3>
+      <div *ngIf="dayData.items.length === 0">无内容</div>
+      <ul *ngIf="dayData.items.length > 0">
+        <li *ngFor="let item of dayData.items" class="item-card">
+          <div class="image-container">
+            <img [src]="item.images.common" [alt]="item.name" />
+            <div class="overlay">
+              <p>{{ item.name }}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

@@ -1,0 +1,58 @@
+.weekly-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7列，每列宽度相同 */
+  gap: 1em;
+}
+
+.day-column {
+  background-color: #f9f9f9;
+  padding: 1em;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.day-column h3 {
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-card {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* 让图片宽度充满列 */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto; /* 高度随宽度调整，保持比例 */
+  object-fit: cover; /* 确保图片按比例填充 */
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+  color: white;
+  text-align: center;
+  padding: 0.5em 0;
+  font-size: 0.9em;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

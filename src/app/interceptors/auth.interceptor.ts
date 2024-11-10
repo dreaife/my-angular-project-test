@@ -5,10 +5,10 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authToken = environment.bgm.authToken;
   const userAgent = environment.bgm.userAgent;
 
-  if (req.url.startsWith('https://api.bgm.tv')) {
+  if (req.url.startsWith('https://api.bgm.tv/v0')) {
     const authReq = req.clone({
       setHeaders: {
-        // Authorization: `Bearer ${authToken}`,
+        Authorization: `Bearer ${authToken}`,
         // 'mode': 'cors',
         // 'User-Agent': userAgent,mode: 'cors'
       }
