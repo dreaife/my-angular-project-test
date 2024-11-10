@@ -1,0 +1,53 @@
+<!-- <p>login works!</p> -->
+<div class="auth-container">
+    <h2>{{ authMode === 'login' ? '登录' : authMode === 'register' ? '注册' : '忘记密码' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label>用户名 (邮箱):</label>
+        <input type="text" [(ngModel)]="username" name="username" required />
+      </div>
+  
+      <div *ngIf="authMode === 'register'">
+        <label>邮箱:</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+  
+      <div *ngIf="authMode !== 'forgotPassword'">
+        <label>密码:</label>
+        <input type="password" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <div *ngIf="authMode === 'confirmSignUp'">
+        <label>验证码:</label>
+        <input type="text" [(ngModel)]="code" name="code" required />
+  
+      </div>
+
+      <div *ngIf="authMode === 'resetPassword'">
+        <label>验证码:</label>
+        <input type="text" [(ngModel)]="code" name="code" required />
+        <label>新密码:</label>
+        <input type="password" [(ngModel)]="newPassword" name="newPassword" required />
+      </div>
+  
+      <button type="submit">
+        {{ authMode === 'login' ? '登录' : authMode === 'register' ? '注册' : authMode === 'confirmSignUp' ? '验证' : authMode === 'resetPassword' ? '重置密码' : '提交' }}
+      </button>
+    </form>
+  
+    <button *ngIf="authMode !== 'login'" (click)="switchMode('login')">已有账号？登录</button>
+    <button *ngIf="authMode !== 'register'" (click)="switchMode('register')">没有账号？注册</button>
+    <button *ngIf="authMode !== 'forgotPassword'" (click)="switchMode('forgotPassword')">忘记密码？</button>
+
+    <!-- 新密码模态对话框 -->
+    <div class="modal" *ngIf="showNewPasswordModal">
+        <h2>设置新密码</h2>
+        <label>新密码:</label>
+        <input type="password" [(ngModel)]="newPassword" required />
+        <button (click)="onNewPasswordSubmit()">提交</button>
+    </div>
+  
+    <p>{{ message }}</p>
+  </div>
+  

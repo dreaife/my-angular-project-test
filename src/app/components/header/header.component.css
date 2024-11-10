@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background-color: #f0f0f0;
+}
+
+.left-buttons {
+  display: flex;
+  gap: 1em; /* 按钮间距 */
+}
+
+.right-buttons {
+  display: flex;
+  gap: 1em;
+}

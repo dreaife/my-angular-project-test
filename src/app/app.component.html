@@ -1,2 +1,10 @@
-<h1>Hello World</h1>
-<h1>now we use cognito+google auth</h1>
+
+<app-header *ngIf="shouldShowHeader()"></app-header>
+
+<div class="content" *ngIf="!shouldShowHeader()">
+    <h1>Hello World</h1>
+    <h1>now we use cognito auth</h1>
+</div>
+
+
+<router-outlet></router-outlet>
