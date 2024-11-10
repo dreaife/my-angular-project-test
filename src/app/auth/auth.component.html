@@ -24,3 +24,29 @@
     <p>{{ message }}</p>
   </div>
   
+
+<h1>Amplify Authenticator</h1>
+<amplify-authenticator>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+    <h1>Welcome {{ user.username }}!</h1>
+    <button (click)="signOut()">Sign Out</button>
+  </ng-template>
+</amplify-authenticator>
+
+<h1>Authenticator Service gen2</h1>
+<amplify-authenticator>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+    <div>
+      <h1>Welcome {{ user.username }}!</h1>
+    </div>
+    <button (click)="signOut()">Sign Out</button>
+  </ng-template>
+</amplify-authenticator>

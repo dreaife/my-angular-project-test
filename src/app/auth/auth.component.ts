@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { signUp,signIn,SignUpOutput } from 'aws-amplify/auth';
 import { FormsModule } from '@angular/forms';
+import { AmplifyAuthenticatorModule,AuthenticatorService } from '@aws-amplify/ui-angular';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,AmplifyAuthenticatorModule],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
@@ -14,6 +15,8 @@ export class AuthComponent {
   email: string = '';
   mode: 'login' | 'register' = 'login'; // 控制登录或注册模式
   message: string = '';
+
+  constructor(private authenticatorService: AuthenticatorService) {}
 
   // 注册用户
   async signUp() {
