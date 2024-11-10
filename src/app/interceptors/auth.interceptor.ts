@@ -8,8 +8,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   if (req.url.startsWith('https://api.bgm.tv')) {
     const authReq = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${authToken}`,
-        'mode': 'cors',
+        // Authorization: `Bearer ${authToken}`,
+        // 'mode': 'cors',
         // 'User-Agent': userAgent,mode: 'cors'
       }
     });
