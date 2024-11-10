@@ -3,7 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 或者你要监控的分支名称
+      # - master  # 或者你要监控的分支名称
+      - main
 
 jobs:
   build-and-deploy:

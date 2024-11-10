@@ -1,0 +1,26 @@
+<p>auth works!</p>
+
+<div class="auth-container">
+    <h2>{{ mode === 'login' ? '登录' : '注册' }}</h2>
+  
+    <form (ngSubmit)="mode === 'login' ? signIn() : signUp()">
+      <div>
+        <label>邮箱:</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+  
+      <div>
+        <label>密码:</label>
+        <input type="password" [(ngModel)]="password" name="password" required />
+      </div>
+  
+      <button type="submit">{{ mode === 'login' ? '登录' : '注册' }}</button>
+    </form>
+  
+    <button (click)="toggleMode()">
+      {{ mode === 'login' ? '没有账号？注册' : '已有账号？登录' }}
+    </button>
+  
+    <p>{{ message }}</p>
+  </div>
+  
