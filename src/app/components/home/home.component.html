@@ -1,5 +1,12 @@
-<div class="weekly-calendar">
-    <div *ngFor="let dayData of weeklyData" class="day-column">
+<div class="calendar-title">
+    <h2>本周动画（当前日期：{{ daysOfWeek[currentWeekday - 1] }}）</h2>
+  </div>
+  
+  <div class="weekly-calendar">
+    <div 
+      *ngFor="let dayData of weeklyData; let i = index" 
+      class="day-column"
+      [class.highlight]="i + 1 === currentWeekday"> <!-- 正确闭合开标签 -->
       <h3>{{ dayData.day }}</h3>
       <div *ngIf="dayData.items.length === 0">无内容</div>
       <ul *ngIf="dayData.items.length > 0">

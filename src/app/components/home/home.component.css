@@ -1,6 +1,16 @@
+.calendar-title {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.calendar-title h2 {
+  font-size: 1.5em;
+  color: #333;
+}
+
 .weekly-calendar {
   display: grid;
-  grid-template-columns: repeat(7, 1fr); /* 7列，每列宽度相同 */
+  grid-template-columns: repeat(7, 1fr);
   gap: 1em;
 }
 
@@ -17,6 +27,11 @@
   margin-bottom: 0.5em;
 }
 
+.day-column.highlight {
+  background-color: #ffdddd; /* 高亮当前日期列 */
+  border: 2px solid #ff4444;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -31,15 +46,15 @@ ul {
 
 .image-container {
   position: relative;
-  width: 100%; /* 让图片宽度充满列 */
+  width: 100%;
   overflow: hidden;
   border-radius: 8px;
 }
 
 .image-container img {
   width: 100%;
-  height: auto; /* 高度随宽度调整，保持比例 */
-  object-fit: cover; /* 确保图片按比例填充 */
+  height: auto;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -48,7 +63,7 @@ ul {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.6); /* 半透明背景 */
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   text-align: center;
   padding: 0.5em 0;
