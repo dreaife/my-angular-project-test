@@ -1,0 +1,218 @@
+/* 容器样式 */
+.search-container {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.search-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  color: #333;
+}
+
+/* 搜索框和按钮 */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  margin-bottom: 1.5em;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 0.8em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #3b82f6;
+}
+
+.search-btn {
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #2563eb;
+}
+
+.search-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* 选项设置 */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 1em;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.9em;
+  color: #333;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #3b82f6;
+}
+
+/* 错误信息 */
+.error-message {
+  color: red;
+  margin-top: 1em;
+}
+
+/* 搜索结果 */
+.results-container {
+  margin-top: 1em;
+  text-align: left;
+}
+
+.results-container h3 {
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.result-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+  padding: 1em;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result-item img {
+  width: 80px;
+  height: 80px;
+  margin-right: 1em;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.result-info {
+  flex: 1;
+}
+
+.result-info h4 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.name-cn {
+  font-size: 1em;
+  color: #666;
+}
+
+.result-info p {
+  margin: 0.5em 0;
+  color: #555;
+}
+
+.summary {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.tags {
+  font-size: 0.85em;
+  color: #777;
+}
+
+.tags span {
+  background-color: #e0e7ff;
+  padding: 0.2em 0.5em;
+  margin-right: 0.5em;
+  border-radius: 4px;
+  color: #3b82f6;
+}
+
+/* 项目详情页跳转 */
+.result-item {
+  cursor: pointer;
+}
+
+/* 分页样式 */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 1.5em;
+  font-size: 1em;
+}
+
+.page-btn {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3b82f6;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.page-btn:hover {
+  background-color: #2563eb;
+}
+
+.page-btn:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}

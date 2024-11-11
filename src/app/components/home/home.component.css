@@ -45,11 +45,13 @@ ul {
   display: flex;
   justify-content: center;
   margin-bottom: 1em;
+  cursor: pointer;
 }
 
 .image-container {
   position: relative;
-  width: 12vh;
+  /* width: 150px; */
+  height: 15vh;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -74,3 +76,71 @@ ul {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+/* 浮窗和遮罩层样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 12px;
+  width: min(75%, 800px); /* 宽度设为页面宽度的 3/4，最大不超过 800px */
+  max-width: 90vw; /* 在小屏幕上最多占 90% 的宽度 */
+  max-height: 80vh; /* 最大高度设为视口高度的 80% */
+  overflow-y: auto; /* 内容溢出时启用垂直滚动条 */
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片样式 */
+.modal img {
+  width: 100%;
+  max-height: 400; /* 限制图片高度 */
+  object-fit: cover; /* 保持图片比例，裁剪溢出部分 */
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+/* 关闭按钮样式 */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+}
+
+/* 在小屏幕上，调整浮窗和内容布局 */
+@media (max-width: 768px) {
+  .modal {
+    width: 90vw; /* 在小屏幕上宽度设为 90% */
+    padding: 1.5em;
+  }
+}
+
+
+.modal a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.modal a:hover h2 {
+  text-decoration: underline;
+  color: #3b82f6;
+}
+

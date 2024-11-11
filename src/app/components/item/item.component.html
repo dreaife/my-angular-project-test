@@ -1,0 +1,51 @@
+<div *ngIf="item" class="item-details">
+    <!-- 图片和标题 -->
+    <h2>{{ item.name }}</h2>
+    <h3 *ngIf="item.name_cn">{{ item.name_cn }}</h3>
+    <img [src]="item.images.large" [alt]="item.name" />
+  
+    <!-- 基本信息 -->
+    <div class="basic-info">
+      <p><strong>平台：</strong>{{ item.platform }}</p>
+      <p><strong>放送日期：</strong>{{ item.date }}</p>
+      <p><strong>总话数：</strong>{{ item.total_episodes || '未知' }}</p>
+    </div>
+  
+    <!-- 概要 -->
+    <p class="summary">{{ item.summary || '暂无描述' }}</p>
+  
+    <!-- 评分信息 -->
+    <div class="rating">
+      <p><strong>评分：</strong>{{ item.rating?.score || '无评分' }} / 10</p>
+      <p><strong>评分人数：</strong>{{ item.rating?.total || 0 }} 人</p>
+    </div>
+  
+    <!-- 标签 -->
+    <div class="tags">
+      <p><strong>标签：</strong></p>
+      <ul>
+        <li *ngFor="let tag of item.tags">{{ tag.name }} ({{ tag.count }})</li>
+      </ul>
+    </div>
+  
+    <!-- 详细信息从 infobox 获取 -->
+    <div class="infobox">
+      <h4>详细信息</h4>
+      <ul>
+        <li *ngFor="let info of item.infobox">
+          <strong>{{ info.key }}：</strong>
+          <span *ngIf="!isArray(info.value)">{{ info.value }}</span>
+          <ul *ngIf="isArray(info.value)">
+            <li *ngFor="let val of info.value">{{ val.v }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  
+    <!-- 链接 -->
+    <div class="link-buttons">
+        <a *ngIf="getOfficialWebsite()" [href]="getOfficialWebsite()" target="_blank" class="button">官方网站</a>
+        <a [href]="'https://bangumi.tv/subject/' + item.id" target="_blank" class="button">Bangumi 链接</a>
+      </div>
+  </div>
+  

@@ -1,0 +1,147 @@
+/* 基础设置 */
+.item-details {
+    max-width: 600px;
+    margin: 2em auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 标题样式 */
+  .item-details h2 {
+    font-size: 2.2em;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  
+  .item-details h3 {
+    font-size: 1.3em;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 1.5em;
+  }
+  
+  /* 图片样式 */
+  .item-details img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 1em 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 信息段样式 */
+  .basic-info, .rating, .tags, .infobox {
+    text-align: left;
+    margin: 1em 0;
+  }
+  
+  .basic-info p, .rating p, .summary {
+    font-size: 1em;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  /* 概要样式 */
+  .summary {
+    font-size: 1.1em;
+    color: #666;
+    margin-top: 1em;
+    line-height: 1.6;
+  }
+  
+  /* 标签样式 */
+  .tags ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+  
+  .tags li {
+    background-color: #e0e7ff;
+    padding: 0.5em 0.8em;
+    border-radius: 8px;
+    color: #3b82f6;
+    font-size: 0.85em;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 详细信息样式 */
+  .infobox h4 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.8em;
+  }
+  
+  .infobox ul, .infobox li {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95em;
+    margin: 0.3em 0;
+    color: #555;
+    line-height: 1.4;
+  }
+  
+  /* 链接样式 */
+  a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* 链接按钮样式 */
+  .link-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 1.5em;
+  }
+  
+  .button {
+    padding: 0.75em 1.5em;
+    background-color: #3b82f6;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
+  }
+  
+  .button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+  }
+  
+  /* 响应式布局 */
+  @media (max-width: 768px) {
+    .item-details {
+      padding: 1.5em;
+    }
+  
+    .item-details h2 {
+      font-size: 1.8em;
+    }
+  
+    .item-details h3 {
+      font-size: 1.2em;
+    }
+  
+    .button {
+      width: 100%;
+      padding: 1em;
+    }
+  }
+  

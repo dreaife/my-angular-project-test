@@ -10,7 +10,7 @@
       <h3>{{ dayData.day }}</h3>
       <div *ngIf="dayData.items.length === 0">无内容</div>
       <ul *ngIf="dayData.items.length > 0">
-        <li *ngFor="let item of dayData.items" class="item-card">
+        <li *ngFor="let item of dayData.items" class="item-card" (click)="openModal(item.id)">
           <div class="image-container">
             <img [src]="item.images.common" [alt]="item.name" />
             <div class="overlay">
@@ -22,3 +22,24 @@
     </div>
   </div>
   
+<!-- 浮窗，显示选中项的详细信息 -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+  <div class="modal" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeModal()">X</button>
+    <div *ngIf="selectedItem">
+      <a [routerLink]="['/items', selectedItem.id]">
+        <h2>{{ selectedItem.name }}</h2>
+      </a>
+      <a [routerLink]="['/items', selectedItem.id]">
+        <img [src]="selectedItem.images.large" [alt]="selectedItem.name" />
+      </a>
+
+      <h3 *ngIf="selectedItem.name_cn">{{ selectedItem.name_cn }}</h3>
+      <p>{{ selectedItem.summary || '暂无描述' }}</p>
+      <p><strong>评分：</strong>{{ selectedItem.rating?.score || '无评分' }} / 10</p>
+      <p><strong>首播日期：</strong>{{ selectedItem.air_date }}</p>
+      <!-- 使用辅助方法获取官方网站链接 -->
+      <a *ngIf="getOfficialWebsite()" [href]="getOfficialWebsite()" target="_blank">官方网站</a>
+    </div>
+  </div>
+</div>
