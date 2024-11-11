@@ -40,6 +40,8 @@ jobs:
             }
           };" > src/app/environment/environment.prod.ts
 
+          ls src/app/environment
+
       - name: Build project
         run: npm run build -- --configuration production --base-href "/my-angular-project-test/"
 
