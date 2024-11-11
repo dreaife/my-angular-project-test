@@ -4,6 +4,8 @@
 
 这是一个基于 Angular 的前端项目，提供用户认证和动画信息展示功能。项目使用 Amazon Cognito 进行用户管理，并通过 GitHub Pages 部署。API 来自 [Bangumi API](https://bangumi.github.io/api/)。
 
+GitHub Pages 地址：[https://dreaife.github.io/my-angular-project-test/](https://dreaife.github.io/my-angular-project-test/)
+
 ## 功能
 
 - 用户注册、登录和密码重置
