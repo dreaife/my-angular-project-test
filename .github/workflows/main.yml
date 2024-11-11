@@ -20,12 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Generate environment.prod.ts
+      - name: Generate environment.ts
         run: |
           # 创建 src/app/environment 目录（如果不存在）
           mkdir -p src/app/environment
           
-          # 生成 environment.prod.ts 文件
+          # 生成 environment.ts 文件
           echo "export const environment = {
             production: true,
             cognito: {
@@ -38,7 +38,7 @@ jobs:
               authToken: '$BGM_AUTH_TOKEN',
               userAgent: 'dreaife/my-angular-project-test'
             }
-          };" > src/app/environment/environment.prod.ts
+          };" > src/app/environment/environment.ts
 
           ls src/app/environment
 
