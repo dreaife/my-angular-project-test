@@ -20,8 +20,24 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Generate environment.prod.ts
+        run: |
+          echo "export const environment = {
+            production: true,
+            cognito: {
+              userPoolId: '$COGNITO_USER_POOL_ID',
+              clientId: '$COGNITO_CLIENT_ID',
+              domain: '$COGNITO_DOMAIN'
+            },
+            bgm: {
+              url: 'https://api.bgm.tv/v0',
+              authToken: '$BGM_AUTH_TOKEN',
+              userAgent: 'dreaife/my-angular-project-test'
+            }
+          };" > src/environments/environment.prod.ts
+
       - name: Build project
-        run: npm run build -- --base-href "/my-angular-project-test/"
+        run: npm run build -- --configuration production --base-href "/my-angular-project-test/"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
@@ -30,4 +46,9 @@ jobs:
           token: ${{ secrets.TOKEN }}
 
 env:
+  COGNITO_USER_POOL_ID: ${{ secrets.COGNITO_USER_POOL_ID }}
+  COGNITO_CLIENT_ID: ${{ secrets.COGNITO_CLIENT_ID }}
+  COGNITO_DOMAIN: ${{ secrets.COGNITO_DOMAIN }}
+  BGM_AUTH_TOKEN: ${{ secrets.BGM_AUTH_TOKEN }}
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  
