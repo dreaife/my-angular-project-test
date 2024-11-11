@@ -43,4 +43,4 @@ Thumbs.db
 
 # 环境变量
 /src/app/environment/environment.ts
-/src/environments/environment.prod.ts
+/src/app/environments/environment.prod.ts

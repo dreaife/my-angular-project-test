@@ -34,7 +34,7 @@ jobs:
               authToken: '$BGM_AUTH_TOKEN',
               userAgent: 'dreaife/my-angular-project-test'
             }
-          };" > src/environments/environment.prod.ts
+          };" > src/app/environments/environment.prod.ts
 
       - name: Build project
         run: npm run build -- --configuration production --base-href "/my-angular-project-test/"
