@@ -44,3 +44,6 @@ Thumbs.db
 # 环境变量
 /src/app/environment/environment.ts
 /src/app/environment/environment.prod.ts
+
+# md config
+/.markdownlint.jsonc

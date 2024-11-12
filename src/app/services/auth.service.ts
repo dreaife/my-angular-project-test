@@ -98,6 +98,7 @@ export class AuthService {
     });
   }
 
+  // 验证用户
   confirmSignUp(username: string, code: string): Promise<any> {
     const cognitoUser = new CognitoUser({
       Username: username,
@@ -136,6 +137,8 @@ export class AuthService {
   }
 
   logout() {
+    // 登出
+    this.userPool.getCurrentUser()?.signOut();
     sessionStorage.removeItem('userToken');
     this.router.navigate(['/login']);
   }

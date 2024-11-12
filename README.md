@@ -53,6 +53,8 @@ GitHub Pages 地址：[https://dreaife.github.io/my-angular-project-test/](https
 
 ## 贡献
 
+本项目的具体实现请参阅 [tech-note.md](tech-note.md)。
+
 欢迎贡献代码！请提交 Pull Request 或报告问题。
 
 ## 许可证
