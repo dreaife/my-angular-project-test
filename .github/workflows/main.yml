@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # 或者你要监控的分支名称
+      - master
 
 jobs:
-  build-and-deploy:
+  test-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -15,23 +15,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # 请根据项目需求修改 Node.js 版本
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
+      - name: Run tests
+        run: npm test
+
       - name: Generate environment.ts
         run: |
-          # 创建 src/app/environment 目录（如果不存在）
           mkdir -p src/app/environment
-          
-          # 生成 environment.ts 文件
           echo "export const environment = {
             production: true,
             cognito: {
-              userPoolId: '$COGNITO_USER_POOL_ID',
-              clientId: '$COGNITO_CLIENT_ID',
-              domain: '$COGNITO_DOMAIN'
+              userPoolId: '${{ secrets.COGNITO_USER_POOL_ID }}',
+              clientId: '${{ secrets.COGNITO_CLIENT_ID }}',
+              domain: '${{ secrets.COGNITO_DOMAIN }}'
             },
             bgm: {
               url: 'https://api.bgm.tv/v0',
@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/my-angular-project/browser  # 请根据实际输出路径填写
+          folder: dist/my-angular-project/browser
           token: ${{ secrets.TOKEN }}
 
 env:
