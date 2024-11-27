@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
       - name: Generate environment.ts
         run: |
           mkdir -p src/app/environment
@@ -42,6 +39,10 @@ jobs:
 
           ls src/app/environment
 
+
+      - name: Run tests
+        run: npm test
+        
       - name: Build project
         run: npm run build -- --configuration production --base-href "/my-angular-project-test/"
 
