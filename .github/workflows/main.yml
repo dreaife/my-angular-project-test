@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '**/*.spec.ts'
+      - '**/*.test.ts'
+      - 'jest.config.js'
+      - 'setup-jest.ts'
 
 jobs:
   test-and-deploy:
