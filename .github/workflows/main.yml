@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages and Create Release
 
 on:
   push:
@@ -56,6 +56,61 @@ jobs:
         with:
           folder: dist/my-angular-project/browser
           token: ${{ secrets.TOKEN }}
+
+      # 创建 ZIP 文件
+      - name: Create ZIP archive
+        run: |
+          cd dist/my-angular-project/browser
+          zip -r ../../../release.zip .
+          cd ../../..
+
+      # 获取当前时间作为版本号
+      - name: Get current time
+        id: current-time
+        run: echo "time=$(date +'%Y%m%d_%H%M%S')" >> $GITHUB_OUTPUT
+
+      # 创建 Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          tag_name: v${{ steps.current-time.outputs.time }}
+          release_name: Release ${{ steps.current-time.outputs.time }}
+          body: |
+            Release created at ${{ steps.current-time.outputs.time }}
+            
+            Changes in this release:
+            ${{ github.event.head_commit.message }}
+          draft: false
+          prerelease: false
+
+      # 上传构建产物到 Release
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release.zip
+          asset_name: release-${{ steps.current-time.outputs.time }}.zip
+          asset_content_type: application/zip
+
+      # 可选：上传源代码
+      - name: Create Source Code Archive
+        run: |
+          git archive --format=zip HEAD -o source-code.zip
+
+      - name: Upload Source Code
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./source-code.zip
+          asset_name: source-code-${{ steps.current-time.outputs.time }}.zip
+          asset_content_type: application/zip
 
 env:
   COGNITO_USER_POOL_ID: ${{ secrets.COGNITO_USER_POOL_ID }}
